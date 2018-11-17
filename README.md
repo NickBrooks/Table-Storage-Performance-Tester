@@ -2,10 +2,23 @@
 
 Using [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) to run some simple performance and throughput tests on [Azure Table Storage](https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet).
 
-- [Getting started :runner:](#getting-started)
+- [Results :tada:](#results)
+- [Deploy to Azure :runner:](#deploy-to-azure)
 - [Run locally :houses:](#run-locally)
 - [Batch insert into partition :incoming_envelope:](#batch-insert-into-partition)
 - [Count entities in a partition :1234:](#count-entities-in-a-partition)
+
+## Results
+
+#### My average batch insert results running in West US 2 data center:
+
+- 100 items: **115ms**
+- 1000 items: **1096ms (109ms per 100)**
+- 100,000 items: **98985ms (98ms per 100)**
+
+#### My average count total partition entities (100,000) running in West US 2 data center:
+
+- 100,000 items: **6400ms**
 
 ## Deploy to Azure
 
@@ -34,12 +47,6 @@ https://xyz.azurewebsites.net/api/batchinsert?partitionKey=your_partition_key&co
 
 [The code.](TableStoragePerformanceTester/TableStorage.cs#L41-L74)
 
-#### My average batch insert results running in West US 2 data center:
-
-- 100 items: **115ms**
-- 1000 items: **1096ms (109ms per 100)**
-- 100,000 items: **98985ms (98ms per 100)**
-
 ## Count entities in a partition
 
 ```
@@ -48,7 +55,3 @@ https://xyz.azurewebsites.net/api/getPartitionCount?partitionKey=your_partition_
 ```
 
 [The code.](TableStoragePerformanceTester/TableStorage.cs#L17-L39)
-
-#### My average count total partition entities (100,000) running in West US 2 data center:
-
-- 100,000 items: **6400ms**
