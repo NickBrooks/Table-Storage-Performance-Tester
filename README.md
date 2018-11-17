@@ -1,6 +1,6 @@
 # Azure Table Storage Performance Tester :cloud_with_lightning:
 
-Using [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) to run some simple tests on [Azure Table Storage](https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet).
+Using [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) to run some simple performance and throughput tests on [Azure Table Storage](https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet).
 
 - [Getting started :runner:](#getting-started)
 - [Run locally :houses:](#run-locally)
