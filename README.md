@@ -11,7 +11,7 @@ Using [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/)
 
 1. In the Azure Portal
 2. Create a new Table Storage resource.
-3. Create a new Azure Function resource. For the sake of this README, the app name will be 'xyz'. Name it what you like and replace 'xyz' with your app name in the HTTP requests below.
+3. Create a new Azure Function resource. For the sake of this README, the app name will be `xyz`. Name it what you like and replace `xyz` with your app name in the HTTP requests below.
 4. Get the access key from Table Storage, create a new AppSetting in your Functions App named `TableStorageConnection`. The value of this setting will be the key you got from Table Storage.
 5. Deploy the Functions app from this repo or open in Visual Studio and publish from there.
 
@@ -23,7 +23,7 @@ To run locally, copy `local.settings.example.json` and rename it to `local.setti
 
 ## Batch insert into partition
 
-Azure can [batch insert](https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet#insert-a-batch-of-entities) up to 100 entities at a time.
+Table Storage can [batch insert](https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet#insert-a-batch-of-entities) up to 100 entities at a time.
 
 To batch insert a bunch of entities, run the following HTTP request, making sure to set `your_partition_key`. `count` refers to how many batches of 100 entities you'd like to insert. For this, we've set it to 1000 which equates to 100,000 entities.
 
@@ -31,6 +31,8 @@ To batch insert a bunch of entities, run the following HTTP request, making sure
 GET
 https://tstester.azurewebsites.net/api/batchinsert?partitionKey=your_partition_key&count=1000
 ```
+
+[The code.](TableStoragePerformanceTester/TableStorage.cs#L41-L74)
 
 #### My average batch insert results running in West US 2 data center:
 
@@ -44,6 +46,8 @@ https://tstester.azurewebsites.net/api/batchinsert?partitionKey=your_partition_k
 GET
 https://xyz.azurewebsites.net/api/getPartitionCount?partitionKey=your_partition_key
 ```
+
+[The code.](TableStoragePerformanceTester/TableStorage.cs#L17-L39)
 
 #### My average count total partition entities (100,000) running in West US 2 data center:
 
