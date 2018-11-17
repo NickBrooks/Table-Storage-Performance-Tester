@@ -29,7 +29,7 @@ To batch insert a bunch of entities, run the following HTTP request, making sure
 
 ```
 GET
-https://tstester.azurewebsites.net/api/batchinsert?partitionKey=your_partition_key&count=1000
+https://xyz.azurewebsites.net/api/batchinsert?partitionKey=your_partition_key&count=1000
 ```
 
 [The code.](TableStoragePerformanceTester/TableStorage.cs#L41-L74)
