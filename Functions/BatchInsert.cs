@@ -15,8 +15,6 @@ namespace TableStoragePerformanceTester
         [FunctionName("BatchInsert")]
         public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequest req, TraceWriter log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
-
             string partitionKey = req.Query["partitionKey"];
             if (partitionKey == null)
                 return new BadRequestObjectResult("Add a partition key.");

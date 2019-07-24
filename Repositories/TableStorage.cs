@@ -22,8 +22,7 @@ namespace TableStoragePerformanceTester
 
             EntityResolver<string> resolver = (pk, rk, ts, props, etag) => null;
 
-            List<string> entities = new List<string>();
-
+            var count = 0;
             TableContinuationToken continuationToken = null;
             do
             {
@@ -32,10 +31,10 @@ namespace TableStoragePerformanceTester
 
                 continuationToken = tableQueryResult.ContinuationToken;
 
-                entities.AddRange(tableQueryResult.Results);
+                count = count + tableQueryResult.Results.Count;
             } while (continuationToken != null);
 
-            return entities.Count;
+            return count;
         }
 
         public static async Task<bool> BatchOfBatchInserts(string partitionKey, int count)

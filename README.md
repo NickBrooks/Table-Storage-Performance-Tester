@@ -25,7 +25,7 @@ Using [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/)
 1. In the Azure Portal
 2. Create a new Table Storage resource.
 3. Create a new Azure Function resource. For the sake of this README, the app name will be `xyz`. Name it what you like and replace `xyz` with your app name in the HTTP requests below.
-4. Get the access key from Table Storage, create a new AppSetting in your Functions App named `TableStorageConnection`. The value of this setting will be the key you got from Table Storage.
+4. Get the access key from Table Storage, create a new AppSetting in your Functions App named `AzureWebJobsStorage`. The value of this setting will be the key you got from Table Storage.
 5. Deploy the Functions app from this repo or open in Visual Studio and publish from there.
 
 ## Run locally

@@ -1,8 +1,0 @@
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "",
-    "AzureWebJobsDashboard": "",
-    "TableStorageConnection": "INSERT_YOUR_STORAGE_CONNECTION_HERE"
-  }
-}
