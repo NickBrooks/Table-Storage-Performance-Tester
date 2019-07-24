@@ -10,7 +10,7 @@ namespace TableStoragePerformanceTester
 
     public class TableStorage
     {
-        private static CloudStorageAccount storageAccount = CloudStorageAccount.Parse(Environment.GetEnvironmentVariable("TableStorageConnection"));
+        private static CloudStorageAccount storageAccount = CloudStorageAccount.Parse(Environment.GetEnvironmentVariable("AzureWebJobsStorage"));
         private static CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
         private static readonly string entityTable = "entities";
 
