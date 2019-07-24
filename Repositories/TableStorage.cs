@@ -17,6 +17,7 @@ namespace TableStoragePerformanceTester
         public static async Task<int> GetCountOfEntitiesInPartition(string partitionKey)
         {
             CloudTable table = tableClient.GetTableReference(entityTable);
+            await table.CreateIfNotExistsAsync();
 
             TableQuery<DynamicTableEntity> tableQuery = new TableQuery<DynamicTableEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, partitionKey)).Select(new string[] { "PartitionKey" });
 
@@ -51,6 +52,7 @@ namespace TableStoragePerformanceTester
         {
             // Create the CloudTable object that represents the "people" table.
             CloudTable table = tableClient.GetTableReference(entityTable);
+            await table.CreateIfNotExistsAsync();
 
             // Create the batch operation.
             TableBatchOperation batchOperation = new TableBatchOperation();
